@@ -131,7 +131,7 @@ function connectSocket() {
                 currentOrderCtx = await getCanvasFromUrl(`https://topsneaky.birdbot.xyz/maps/${data.data}`, currentOrderCanvas);
                 order = getRealWork(currentOrderCtx.getImageData(0, 0, 2000, 1000).data);
                 Toastify({
-                    text: `Artwork has, ${order.length} pixels in totaal`,
+                    text: `Artwork has, ${order.length} pixels in total`,
                     duration: 10000
                 }).showToast();
                 break;
@@ -145,7 +145,7 @@ function connectSocket() {
             text: `Disconnected from KGS defence server: ${e.reason}`,
             duration: 10000
         }).showToast();
-        console.error('Socketfout: ', e.reason);
+        console.error('Error: ', e.reason);
         socket.close();
         setTimeout(connectSocket, 1000);
     };
