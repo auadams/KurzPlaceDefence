@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kurzgesagt_defence
 // @namespace    https://github.com/PlaceNL/Bot
-// @version      1
+// @version      2
 // @description  Forked from PlaceNL!
 // @author       Austin
 // @match        https://www.reddit.com/r/place/*
