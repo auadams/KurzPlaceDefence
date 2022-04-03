@@ -11,6 +11,8 @@
 // @resource     TOASTIFY_CSS https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css
 // @grant        GM_getResourceText
 // @grant        GM_addStyle
+// @updateURL    https://github.com/auadams/KurzPlaceDefence/raw/main/placedebot.user.js
+// @downloadURL  https://github.com/auadams/KurzPlaceDefence/raw/main/placedebot.user.js
 // ==/UserScript==
 
 
