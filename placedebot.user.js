@@ -157,7 +157,7 @@ function connectSocket() {
         }).showToast();
         console.error('Error: ', e.reason);
         socket.close();
-        setTimeout(connectSocket, 1000);
+        setTimeout(connectSocket, 10000);
     };
 }
 
