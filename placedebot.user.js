@@ -329,7 +329,7 @@ function getCanvasFromUrl(url, canvas, x = 0, y = 0) {
     return new Promise((resolve, reject) => {
         let loadImage = ctx => {
             var img = new Image();
-            img.crossOrigin = 'anonymous';
+            img.crossOrigin = "no-referrer-when-downgrade";
             img.onload = () => {
                 ctx.drawImage(img, x, y);
                 resolve(ctx);
