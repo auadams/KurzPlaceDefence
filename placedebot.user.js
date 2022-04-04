@@ -337,7 +337,7 @@ function getCanvasFromUrl(url, canvas, x = 0, y = 0) {
             img.onerror = () => {
                 Toastify({
                     text: 'Error retrieving orders. Try again in 3 sec...',
-                    duration: 3000
+                    duration: 5000
                 }).showToast();
                 setTimeout(() => loadImage(ctx), 3000);
                 return;
