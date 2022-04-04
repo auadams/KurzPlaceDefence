@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         KurrzDefence
 // @namespace    https://github.com/auadams/KurzPlaceDefence
-// @version      10
+// @version      9
 // @description  /r/kurzgesagt_place
 // @author       austin
 // @match        https://www.reddit.com/r/place/*
@@ -17,7 +17,7 @@
 
 // Ignore that hideous code. But if it works, it works.
 
-const VERSION = 10;
+const VERSION = 11;
 
 const PLACE_URL = 'https://gql-realtime-2.reddit.com/query';
 const UPDATE_URL = 'https://github.com/auadams/KurzPlaceDefence/raw/main/placedebot.user.js';
@@ -69,7 +69,7 @@ async function initServerConnection() {
 	Toastify({
 		text: 'Connect to the command server...',
 		duration: 10000,
-		gravity: "top,
+		gravity: "top",
 		style: {
 			background: '#C6C6C6',
 			color: '#111'
