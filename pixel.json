@@ -2,7 +2,7 @@
     "version": 18,
     "structures": {
         "kurzgesagt_extra": {
-            "priority": 5,
+            "priority": 1,
             "pixels": [
                 {
                     "x": 707,
@@ -6727,7 +6727,7 @@
             ]
         },
         "kurzgesagt_comet": {
-            "priority": 4,
+            "priority": 2,
             "pixels": [
                 {
                     "x": 708,
@@ -7158,7 +7158,7 @@
             ]
         },
         "kurzgesagt_moon": {
-            "priority": 3,
+            "priority": 2,
             "pixels": [
                 {
                     "x": 750,
@@ -8362,7 +8362,7 @@
             ]
         },
         "kurzgesagt_duckright": {
-            "priority": 2,
+            "priority": 4,
             "pixels": [
                 {
                     "x": 758,
@@ -8835,7 +8835,7 @@
             ]
         },
         "kurzgesagt_duckleft": {
-            "priority": 2,
+            "priority": 4,
             "pixels": [
                 {
                     "x": 719,
@@ -9332,7 +9332,7 @@
             ]
         },
         "kurzgesagt_earth": {
-            "priority": 1,
+            "priority": 5,
             "pixels": [
                 {
                     "x": 733,
@@ -9727,7 +9727,7 @@
             ]
         },
         "kurzgesagt_name": {
-            "priority": 1,
+            "priority": 5,
             "pixels": [
                 {
                     "x": 719,
@@ -11632,6 +11632,8 @@
         "0": 0,
         "1": 1,
         "2": 5,
-        "3": 10
+        "3": 10,
+        "4": 50,
+        "5": 100
     }
 }
