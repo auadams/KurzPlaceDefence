@@ -217,7 +217,7 @@ async function attemptPlace() {
                 text: `Pixel posted too soon! Next pixel will be placed at ${nextPixelDate.toLocaleTimeString()}.`,
                 duration: delay
             }).showToast();
-            setTimeout(attemptPlace, delay);
+            setTimeout(attemptPlace, 10000);
         } else {
             const nextPixel = data.data.act.data[0].data.nextAvailablePixelTimestamp + 3000;
             const nextPixelDate = new Date(nextPixel);
