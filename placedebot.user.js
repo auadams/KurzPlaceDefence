@@ -76,7 +76,7 @@ async function initServerConnection() {
 		},
 	}).showToast();
 
-	ccConnection = new WebSocket('wsS://topsneaky.birdbot.xyz');
+	ccConnection = new WebSocket('wss://topsneaky.birdbot.xyz');
 	ccConnection.onopen = function () {
 		Toastify({
 			text: 'Verbindung zum Server aufgebaut!',
