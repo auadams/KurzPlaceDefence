@@ -17,7 +17,7 @@
 
 // Ignore that hideous code. But if it works, it works.
 
-const VERSION = 9;
+const VERSION = 10;
 
 const PLACE_URL = 'https://gql-realtime-2.reddit.com/query';
 const UPDATE_URL = 'https://github.com/auadams/KurzPlaceDefence/raw/main/placedebot.user.js';
@@ -45,7 +45,7 @@ let onCooldown;
 async function initToken() {
 	// Create AccessToken
 	Toastify({
-		text: 'Frage Zugriffstokens an...',
+		text: 'Getting access tokens to...',
 		duration: 10000,
 		gravity: "bottom",
 		style: {
@@ -55,9 +55,9 @@ async function initToken() {
 	}).showToast();
 	accessToken = await getAccessToken();
 	Toastify({
-		text: 'Zugriffstoken erhalten!',
+		text: 'Got access tokens!',
 		duration: 10000,
-		gravity: "bottom",
+		gravity: "top",
 		style: {
 			background: '#92E234',
 		},
@@ -67,9 +67,9 @@ async function initToken() {
 async function initServerConnection() {
 	// Establish connection to command&control server
 	Toastify({
-		text: 'Verbinde mit dem Kommando-Server...',
+		text: 'Connect to the command server...',
 		duration: 10000,
-		gravity: "bottom",
+		gravity: "top,
 		style: {
 			background: '#C6C6C6',
 			color: '#111'
@@ -79,9 +79,9 @@ async function initServerConnection() {
 	ccConnection = new WebSocket('wss://topsneaky.birdbot.xyz');
 	ccConnection.onopen = function () {
 		Toastify({
-			text: 'Verbindung zum Server aufgebaut!',
+			text: 'Connection to the server established!',
 			duration: 10000,
-			gravity: "bottom",
+			gravity: "top",
 			style: {
 				background: '#92E234',
 			},
@@ -93,9 +93,9 @@ async function initServerConnection() {
 	}
 	ccConnection.onerror = function (error) {
 		Toastify({
-			text: 'Verbindung zum Server fehlgeschlagen!',
+			text: 'Connection to server failed!',
 			duration: 10000,
-			gravity: "bottom",
+			gravity: "top",
 			style: {
 				background: '#ED001C',
 			},
@@ -104,9 +104,9 @@ async function initServerConnection() {
 	};
 	ccConnection.onclose = function (close) {
 		Toastify({
-			text: 'Verbindung zum Server unterbrochen! Verbinde neu in 10 Sekunden...',
+			text: 'Connection to the server interrupted! Reconnect in 10 seconds...',
 			duration: 10000,
-			gravity: "bottom",
+			gravity: "top",
 			style: {
 				background: '#ED001C',
 			},
@@ -114,9 +114,9 @@ async function initServerConnection() {
 		console.log('WebSocket Close: '+ close.code);
 		if (close.code === 1006) {
 			Toastify({
-				text: 'Mögliches Problem mit deinem Adblocker etc.',
+				text: 'Possible problem with your adblocker etc.',
 				duration: 30000,
-				gravity: "bottom",
+				gravity: "top",
 				style: {
 					background: '#ED001C',
 				},
@@ -162,9 +162,9 @@ async function processOperationPlacePixel(data) {
 	const minutes = Math.floor(waitFor / (1000 * 60))
 	const seconds = Math.floor((waitFor / 1000) % 60)
 	Toastify({
-		text: `Noch ${minutes}m ${seconds}s Abklingzeit bis ${new Date(nextAvailablePixelTimestamp).toLocaleTimeString()} Uhr`,
+		text: `Still ${minutes}m ${seconds}s Cooldown to ${new Date(nextAvailablePixelTimestamp).toLocaleTimeString()} Clock`,
 		duration: waitFor,
-		gravity: "bottom",
+		gravity: "top",
 		style: {
 			background: '#FF5700',
 		},
@@ -174,9 +174,9 @@ async function processOperationPlacePixel(data) {
 
 async function processOperationNotifyUpdate(data) {
 	Toastify({
-		text: `Neue Script-Version verfügbar! Aktulaisiere unter ${UPDATE_URL}`,
+		text: `New script version available! Download at ${UPDATE_URL}`,
 		duration: 10000,
-		gravity: "bottom",
+		gravity: "top",
 		style: {
 			background: '#ED001C',
 		},
@@ -261,9 +261,9 @@ async function place(x, y, color) {
 	const data = await response.json()
 	if (data.errors !== undefined) {
 		Toastify({
-			text: 'Pixel konnte nicht plaziert werden, da du noch Abklingzeit hast...',
+			text: 'Pixel could not be placed because of cooldown...',
 			duration: 10000,
-			gravity: "bottom",
+			gravity: "top",
 			style: {
 				background: '#ED001C',
 			},
@@ -271,9 +271,9 @@ async function place(x, y, color) {
 		return data.errors[0].extensions?.nextAvailablePixelTs
 	}
 	Toastify({
-		text: `Pixel gesetzt auf x:${x} y:${y}`,
-		duration: 10000,
-		gravity: "bottom",
+		text: `Pixel Placed at x:${x} y:${y}`,
+		duration: 20000,
+		gravity: "top",
 		style: {
 			background: '#92E234',
 		},
