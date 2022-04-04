@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kurzgesagt_defence
 // @namespace    https://github.com/PlaceNL/Bot
-// @version      4
+// @version      5
 // @description  Forked from PlaceNL!
 // @author       Austin
 // @match        https://www.reddit.com/r/place/*
@@ -179,8 +179,8 @@ async function attemptPlace() {
         return;
     }
 
-    const rgbaOrder = currentOrderCtx.getImageData(0, 0, 2000, 1000).data;
-    const rgbaCanvas = ctx.getImageData(0, 0, 2000, 1000).data;
+    const rgbaOrder = currentOrderCtx.getImageData(0, 0, 2000, 2000).data;
+    const rgbaCanvas = ctx.getImageData(0, 0, 2000, 2000).data;
     const work = getPendingWork(order, rgbaOrder, rgbaCanvas);
 
     if (work.length === 0) {
@@ -329,6 +329,7 @@ function getCanvasFromUrl(url, canvas, x = 0, y = 0) {
         let loadImage = ctx => {
             var img = new Image();
             img.crossOrigin = "no-referrer-when-downgrade";
+            img.origin="*";
             img.onload = () => {
                 ctx.drawImage(img, x, y);
                 resolve(ctx);
@@ -339,6 +340,7 @@ function getCanvasFromUrl(url, canvas, x = 0, y = 0) {
                     duration: 3000
                 }).showToast();
                 setTimeout(() => loadImage(ctx), 3000);
+                return;
             };
             img.src = url;
         };
