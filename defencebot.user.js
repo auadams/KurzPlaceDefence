@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         KurrzDefence
 // @namespace    https://github.com/auadams/KurzPlaceDefence
-// @version      9
+// @version      10
 // @description  /r/kurzgesagt_place
 // @author       austin
 // @match        https://www.reddit.com/r/place/*
